@@ -85,6 +85,10 @@ namespace citrus {
     return glfwGetMonitorName(this->internal_monitor_);
   }
 
+  GLFWmonitor* Monitor::getInternalMonitor() {
+    return internal_monitor_;
+  }
+
   std::vector<VideoMode> Monitor::getSupportedVideomodes() const {
     int size;
     const GLFWvidmode* vidmodes = glfwGetVideoModes(this->internal_monitor_, std::addressof(size));

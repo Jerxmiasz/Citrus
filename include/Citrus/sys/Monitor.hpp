@@ -38,10 +38,11 @@ namespace citrus {
     VideoMode getCurrentVideoMode() const;
 
     void setInternalMonitor(GLFWmonitor* monitor);
+    GLFWmonitor* getInternalMonitor();
 
     bool isConnected() const;
 
-    void setConnected(bool isconnected) {connected_ = isconnected;};
+    void setConnected(bool isconnected) noexcept {connected_ = isconnected;};
 
     private:
     bool connected_;

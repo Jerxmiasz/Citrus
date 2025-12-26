@@ -9,6 +9,7 @@ FetchContent_MakeAvailable(GLFW)
 add_library(citrus_sys STATIC
     globals.cpp
     Monitor.cpp
+    Window.cpp
 )
 
 target_link_libraries(citrus_sys PUBLIC glfw)

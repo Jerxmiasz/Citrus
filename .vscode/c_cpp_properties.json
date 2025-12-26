@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/build/_deps/glfw-src/include"
+                "${workspaceFolder}/build/_deps/glfw-src/include",
+                "${workspaceFolder}/include/Citrus"
             ],
             "defines": [
                 "_DEBUG",
