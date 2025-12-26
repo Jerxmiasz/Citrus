@@ -1,0 +1,2 @@
+add_executable(monitor_sample monitor_sample.cpp)
+target_link_libraries(monitor_sample citrus::sys)
