@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/build/_deps/glfw-src/include",
-                "${workspaceFolder}/include/Citrus"
+                "${workspaceFolder}/include/Citrus",
+                "${workspaceFolder}/include/Citrus/graphics"
             ],
             "defines": [
                 "_DEBUG",

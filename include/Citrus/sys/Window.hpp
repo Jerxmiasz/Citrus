@@ -60,7 +60,7 @@ namespace citrus {
 
     void setSize(Vector2i size) const;
 
-    GLFWwindow* getGlfwPtr() noexcept;
+    GLFWwindow* getGlfwPtr() const noexcept;
     // Gets the monitor assigned to the window
     Monitor* getMonitor() const;
 

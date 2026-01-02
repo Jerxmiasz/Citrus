@@ -1,5 +1,5 @@
 #ifndef CITRUS_SYS_MONITOR
-#define CITRUS_SYS_MOINTOR
+#define CITRUS_SYS_MONITOR
 
 #include "Globals.hpp"
 #include <vector>

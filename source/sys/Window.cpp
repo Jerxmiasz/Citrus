@@ -6,6 +6,7 @@ namespace citrus {
   Window::Window(std::string_view name, Vector2u size, bool isResizable, bool isDecorated, bool createOpenGlContext, bool isFullsceen, Monitor* monitor) {
     // TODO: Refactor everything i hate this
     if (createOpenGlContext) {
+      
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
       glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
       glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
@@ -25,6 +26,7 @@ namespace citrus {
       glfwWindowHint(GLFW_RESIZABLE, isResizable);
       glfw_window_ = glfwCreateWindow(size.x, size.y, name.data(), (isFullsceen && monitor) ? monitor->getInternalMonitor() : nullptr, nullptr);
     }
+   
     glfwSetWindowUserPointer(glfw_window_, static_cast<void*>(this));
     glfwSetKeyCallback(glfw_window_, [](GLFWwindow* window, int key, int scancode, int action, int mods){
       Window* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -92,7 +94,10 @@ namespace citrus {
   }
 
   Window::~Window() {
-    glfwDestroyWindow(glfw_window_);
+    if (glfw_window_) {
+      glfwSetWindowUserPointer(glfw_window_, nullptr);
+      glfwDestroyWindow(glfw_window_);
+    }
   }
 
   void Window::setMonitor(Monitor& monitor) {
@@ -104,7 +109,7 @@ namespace citrus {
     return monitor_;
   }
 
-  GLFWwindow* Window::getGlfwPtr() noexcept {
+  GLFWwindow* Window::getGlfwPtr() const noexcept {
     return glfw_window_;
   }
 }
